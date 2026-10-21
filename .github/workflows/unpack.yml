@@ -1,0 +1,26 @@
+name: Unpack CSHARE.zip
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  unpack:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Unpack CSHARE.zip into the repository
+        run: |
+          test -f CSHARE.zip || { echo "::error::Upload CSHARE.zip to the top of the repository first"; exit 1; }
+          unzip -q -o CSHARE.zip -d "$RUNNER_TEMP/unz"
+          cp -a "$RUNNER_TEMP/unz/CSHARE/." .
+          rm -f CSHARE.zip
+      - name: Commit the project
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@users.noreply.github.com
+          git add -A
+          git commit -m "Add CSHARE project with iPhone web app"
+          git push
