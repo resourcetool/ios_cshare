@@ -15,6 +15,13 @@
     <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
     <link rel="icon" type="image/png" href="./icons/icon-192.png" />
     <style>
+      /* Same typeface as the Android app (Roboto). Symbols and arrows used by the app's icons come from the
+         Noto symbol fonts, as on Android, instead of whatever iOS substitutes. */
+      html, body, #root, #root *, input, textarea, button, select {
+        font-family: Roboto, 'Noto Sans Symbols', 'Noto Sans Symbols 2', 'Noto Sans Math', sans-serif !important;
+      }
+      input, textarea, button { outline: none; }
+      input[type='date'], input[type='time'] { -webkit-appearance: none; appearance: none; }
       html, body, #root { height: 100%; }
       body { margin: 0; background: #F3F6F6; overscroll-behavior: none; -webkit-text-size-adjust: 100%; -webkit-tap-highlight-color: transparent; }
       #root { display: flex; flex-direction: column; }

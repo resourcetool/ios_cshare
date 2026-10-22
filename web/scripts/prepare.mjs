@@ -20,6 +20,16 @@ cpSync(overrides, target, { recursive: true });
 // that way an upstream change to the Android screen is noticed instead of silently skipped.
 const patches = [
   {
+    // Keep the web page (and the in-app dialogs) in step with the app's own light/dark choice.
+    file: 'context/ThemeContext.tsx',
+    edits: [
+      [
+        "const palette = scheme === 'dark' ? darkColors : lightColors;",
+        "const palette = scheme === 'dark' ? darkColors : lightColors;\n  if (typeof document !== 'undefined') {\n    document.documentElement.setAttribute('data-scheme', scheme);\n    document.body.style.backgroundColor = palette.bg;\n  }",
+      ],
+    ],
+  },
+  {
     file: 'screens/shared/AssignmentDetailScreen.tsx',
     edits: [
       [

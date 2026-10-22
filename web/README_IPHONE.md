@@ -73,7 +73,3 @@ match /settings/update {
 }
 ```
 Test it on the Firestore emulator first. This is unrelated to the iPhone app.
-
-## Hosting on Vercel (instead of GitHub Pages)
-
-Vercel project settings: **Root Directory = `web`**, keep "Include source files outside of the Root Directory" ON (the build reads `../src`). `web/vercel.json` sets install, build and output. Then add `<project>.vercel.app` to Firebase Authentication → Authorized domains.

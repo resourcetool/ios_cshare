@@ -10,6 +10,10 @@
     "test": "npm run prepare:src && vitest run"
   },
   "dependencies": {
+    "@fontsource/noto-sans-math": "^5.0.8",
+    "@fontsource/noto-sans-symbols": "^5.0.8",
+    "@fontsource/noto-sans-symbols-2": "^5.0.8",
+    "@fontsource/roboto": "^5.0.8",
     "@react-navigation/bottom-tabs": "^7.2.0",
     "@react-navigation/native": "^7.0.14",
     "@react-navigation/native-stack": "^7.2.0",
@@ -26,5 +30,7 @@
     "vite": "^5.4.0",
     "vitest": "^2.0.5"
   },
-  "engines": { "node": ">=18" }
+  "engines": {
+    "node": ">=18"
+  }
 }
